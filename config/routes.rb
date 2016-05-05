@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   root 'api/v1/events#index'
-  namespace :api, path: '', constraints: { subdomain: /^api/ } do
+
+  namespace :api do
     namespace :v1 do
       resources :events, only: [:index, :show]
     end

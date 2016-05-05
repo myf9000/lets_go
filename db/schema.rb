@@ -15,8 +15,9 @@ ActiveRecord::Schema.define(version: 20160426074224) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+  enable_extension "uuid-ossp"
 
-  create_table "events", force: :cascade do |t|
+  create_table "events", id: :uuid, default: "uuid_generate_v4()", force: :cascade do |t|
     t.string   "name"
     t.string   "place"
     t.text     "description"
