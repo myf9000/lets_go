@@ -7,10 +7,11 @@ module Api::V1
       @current_user = current_user
     end
 
-    def basic(_ = {})
+    def basic
       return unless resource.present?
       {
         id: resource.id,
+        # creator_id: current_user.id,
       }
     end
   end

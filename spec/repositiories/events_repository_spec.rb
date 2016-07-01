@@ -28,16 +28,11 @@ describe EventsRepository do
       let(:event) { create(:event) }
       let(:id) { event.id }
 
-      before { subject }
-
-      it { expect(subject(event.id)).to eq(event) }
-      it { expect(subject(event.id)).to be_an(EventEntity) }
+      it { expect(subject.id).to eq event.id }
     end
 
     context "when wrong id" do
       let(:id) { wrong_id }
-
-      before { subject }
 
       it { expect { subject }.to raise_error(error, error_msg) }
     end
